@@ -1,31 +1,93 @@
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { getAuth, signOut } from 'firebase/auth'; // Import necessary Firebase auth functions
-import { CommonActions } from '@react-navigation/native';
+import React from "react";
+import { View, StyleSheet, Image } from "react-native";
+import { Card, Title, Button } from "react-native-paper";
+import { getAuth, signOut } from "firebase/auth";
+import { CommonActions } from "@react-navigation/native";
 
 const Dashboard = ({ navigation }) => {
   const handleLogout = async () => {
     try {
       const auth = getAuth();
       await signOut(auth);
-      console.log('User signed out successfully!');
+      console.log("User signed out successfully!");
 
       // Navigate to the Login screen upon successful logout
-      navigation.dispatch(CommonActions.reset({
-        index: 0,
-        routes: [{ name: 'Login' }],
-      }));
-
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{ name: "Login" }],
+        })
+      );
     } catch (error) {
-      console.error('Error signing out:', error.message);
+      console.error("Error signing out:", error.message);
     }
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-        <Text style={styles.buttonText}>Logout</Text>
-      </TouchableOpacity>
+      <View style={styles.header}>
+        <View style={styles.headerLeft}>
+          <Image source={require("../assets/ember.jpeg")} style={styles.logo} />
+          <Title style={styles.title}>ember</Title>
+        </View>
+        <View style={styles.headerRight}>
+          <Button
+            style={styles.logoutButton}
+            labelStyle={styles.buttonText}
+            onPress={handleLogout}
+          >
+            Logout
+          </Button>
+        </View>
+      </View>
+      <View style={styles.cardCover}>
+        <View style={styles.cardContainer}>
+          <Card style={styles.card1}>
+            <Card.Content>{/* CONTENT */}</Card.Content>
+          </Card>
+
+          <Card style={styles.card1}>
+            <Card.Content>{/* CONTENT */}</Card.Content>
+          </Card>
+        </View>
+        <View style={styles.cardContainer}>
+          <Card style={styles.card}>
+            <Card.Content>{/* CONTENT */}</Card.Content>
+          </Card>
+
+          <Card style={styles.card}>
+            <Card.Content>{/* CONTENT */}</Card.Content>
+          </Card>
+
+          <Card style={styles.card}>
+            <Card.Content>{/* CONTENT */}</Card.Content>
+          </Card>
+
+          <Card style={styles.card}>
+            <Card.Content>{/* CONTENT */}</Card.Content>
+          </Card>
+        </View>
+
+        <View style={styles.cardContainer}>
+          <Card style={styles.card2}>
+            <Card.Content>{/* CONTENT */}</Card.Content>
+          </Card>
+
+          <Card style={styles.card2}>
+            <Card.Content>{/* CONTENT */}</Card.Content>
+          </Card>
+
+          <Card style={styles.card2}>
+            <Card.Content>{/* CONTENT */}</Card.Content>
+          </Card>
+
+          <Card style={styles.card2}>
+            <Card.Content>{/* CONTENT */}</Card.Content>
+          </Card>
+        </View>
+      </View>
+      {/* Empty space */}
+      <View style={styles.emptySpace} />
     </View>
   );
 };
@@ -33,19 +95,68 @@ const Dashboard = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 16,
+    marginTop: 16,
+  },
+  headerLeft: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  logo: {
+    width: 40,
+    height: 40,
+    marginRight: 8,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  headerRight: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   logoutButton: {
-    marginTop: 20,
-    backgroundColor: 'blue',
-    padding: 10,
-    borderRadius: 10,
+    backgroundColor: "blue",
   },
   buttonText: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: 'bold',
+    color: "white",
+    fontSize: 15,
+  },
+  cardCover: {
+    backgroundColor: "#FFFFED",
+    borderRadius: 40,
+    padding: 5,
+    margin: 10,
+  },
+  cardContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    margin: 16,
+  },
+  card2: {
+    flex: 1,
+    marginHorizontal: 8,
+    height: 50,
+  },
+  card: {
+    flex: 1,
+    marginHorizontal: 8,
+    height: 50,
+    marginBottom: -20,
+  },
+  card1: {
+    flex: 1,
+    marginHorizontal: 8,
+    height: 80,
+    marginBottom: -10,
+  },
+  emptySpace: {
+    flex: 1,
   },
 });
 
