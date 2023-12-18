@@ -1,24 +1,37 @@
 import React, { useState } from 'react';
 import { View, Image, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import firebaseApp from '../firebaseConfig'; // Replace with the correct path
+import { CommonActions } from '@react-navigation/native';
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    console.log('Email:', email);
-    console.log('Password:', password);
-    // auth logic here
+  const handleLogin = async () => {
+    try {
+      const auth = getAuth(firebaseApp);
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log('User signed in successfully!');
+
+      // Navigate to the Dashboard screen upon successful login
+      navigation.dispatch(CommonActions.reset({
+        index: 0,
+        routes: [{ name: 'Dashboard' }],
+      }));
+
+    } catch (error) {
+      console.error('Error signing in:', error.message);
+    }
   };
 
   return (
     <View style={styles.container}>
-    
       <Image
         source={require('../assets/ember.jpeg')}
-        style={{ width: 60, height: 60, borderRadius: 18, marginBottom: 10}}
+        style={{ width: 60, height: 60, borderRadius: 18, marginBottom: 10 }}
       />
-      <Text style={{ color: 'black', fontSize: 25, fontWeight: 'bold',marginBottom: 20 }}>Welcome!</Text>
+      <Text style={{ color: 'black', fontSize: 25, fontWeight: 'bold', marginBottom: 20 }}>Welcome!</Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -45,11 +58,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-  },
-  header: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
   },
   input: {
     height: 40,
