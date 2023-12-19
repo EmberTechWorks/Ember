@@ -1,8 +1,11 @@
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
-import { Card, Title, Button } from "react-native-paper";
+import { Card, Title, Button, Text } from "react-native-paper";
 import { getAuth, signOut } from "firebase/auth";
 import { CommonActions } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/FontAwesome";
+import Icon1 from "react-native-vector-icons/FontAwesome5";
+import Icon2 from "react-native-vector-icons/Ionicons";
 
 const Dashboard = ({ navigation }) => {
   const handleLogout = async () => {
@@ -43,46 +46,126 @@ const Dashboard = ({ navigation }) => {
       <View style={styles.cardCover}>
         <View style={styles.cardContainer}>
           <Card style={styles.card1}>
-            <Card.Content>{/* CONTENT */}</Card.Content>
+            <Card.Content>
+              <Text style={styles.content1}>Daily Reduction</Text>
+              <Icon
+                name="circle-o-notch"
+                size={50}
+                color="#000"
+                style={styles.cardlogo2}
+              />
+            </Card.Content>
           </Card>
-
           <Card style={styles.card1}>
-            <Card.Content>{/* CONTENT */}</Card.Content>
+            <Card.Content>
+              <Text style={styles.content1}>Global Position</Text>
+              <Icon
+                name="line-chart"
+                size={50}
+                color="#000"
+                style={styles.cardlogo2}
+              />
+            </Card.Content>
           </Card>
         </View>
         <View style={styles.cardContainer}>
           <Card style={styles.card}>
-            <Card.Content>{/* CONTENT */}</Card.Content>
+            <Card.Content style={styles.centeredContent}>
+              <Icon
+                name="bus"
+                size={30}
+                color="#000"
+                style={styles.cardlogo1}
+              />
+              <Text style={styles.content2}>Public Transit</Text>
+            </Card.Content>
           </Card>
 
           <Card style={styles.card}>
-            <Card.Content>{/* CONTENT */}</Card.Content>
+            <Card.Content style={styles.centeredContent}>
+              <Icon2
+                name="walk"
+                size={30}
+                color="#000"
+                style={styles.cardlogo1}
+              />
+              <Text style={styles.content2}>Walk/Cycle</Text>
+            </Card.Content>
           </Card>
 
           <Card style={styles.card}>
-            <Card.Content>{/* CONTENT */}</Card.Content>
+            <Card.Content style={styles.centeredContent}>
+              <Icon1
+                name="puzzle-piece"
+                size={30}
+                color="#000"
+                style={styles.cardlogo1}
+              />
+              <Text style={styles.content2}>Challenges</Text>
+            </Card.Content>
           </Card>
 
           <Card style={styles.card}>
-            <Card.Content>{/* CONTENT */}</Card.Content>
+            <Card.Content style={styles.centeredContent}>
+              <Icon2
+                name="create"
+                size={30}
+                color="#000"
+                style={styles.cardlogo1}
+              />
+              <Text style={styles.content2}>Create Post</Text>
+            </Card.Content>
           </Card>
         </View>
 
         <View style={styles.cardContainer}>
           <Card style={styles.card2}>
-            <Card.Content>{/* CONTENT */}</Card.Content>
+            <Card.Content style={styles.centeredContent}>
+              <Icon
+                name="cart-plus"
+                size={30}
+                color="#000"
+                style={styles.cardlogo1}
+              />
+
+              <Text style={styles.content3}>Marketplace</Text>
+            </Card.Content>
           </Card>
 
           <Card style={styles.card2}>
-            <Card.Content>{/* CONTENT */}</Card.Content>
+            <Card.Content style={styles.centeredContent}>
+              <Icon
+                name="gift"
+                size={30}
+                color="#000"
+                style={styles.cardlogo1}
+              />
+              <Text style={styles.content3}>Buy Coupons</Text>
+            </Card.Content>
           </Card>
 
           <Card style={styles.card2}>
-            <Card.Content>{/* CONTENT */}</Card.Content>
+            <Card.Content style={styles.centeredContent}>
+              <Icon
+                name="pie-chart"
+                size={28}
+                color="#000"
+                style={styles.cardlogo1}
+              />
+              <Text style={styles.content3}>Statistics</Text>
+            </Card.Content>
           </Card>
 
           <Card style={styles.card2}>
-            <Card.Content>{/* CONTENT */}</Card.Content>
+            <Card.Content style={styles.centeredContent}>
+              <Icon2
+                name="people-circle"
+                size={30}
+                color="#000"
+                style={styles.cardlogo1}
+              />
+              <Text style={styles.content3}>Community</Text>
+            </Card.Content>
           </Card>
         </View>
       </View>
@@ -96,11 +179,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  content1: {
+    fontSize: 12,
+    marginTop: -15,
+    fontWeight: "bold",
+  },
+  content2: {
+    fontSize: 6,
+    marginTop: 5,
+  },
+  content3: {
+    fontSize: 6,
+    marginTop: 5,
+  },
   header: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: 16,
+    padding: 10,
     marginTop: 16,
   },
   headerLeft: {
@@ -111,6 +207,24 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     marginRight: 8,
+  },
+  cardlogo1: {
+    width: 30,
+    height: 30,
+    marginTop: -10,
+    marginLeft: 5,
+    marginRight: 5,
+  },
+  cardlogo2: {
+    width: 50,
+    height: 50,
+    marginTop: 5,
+    marginLeft: 20,
+    marginRight: 0,
+  },
+  centeredContent: {
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 20,
@@ -129,31 +243,36 @@ const styles = StyleSheet.create({
   },
   cardCover: {
     backgroundColor: "#FFFFED",
-    borderRadius: 40,
+    borderRadius: 55,
     padding: 5,
     margin: 10,
   },
   cardContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    margin: 16,
+    margin: 14,
   },
   card2: {
     flex: 1,
-    marginHorizontal: 8,
-    height: 50,
+    marginHorizontal: 3,
+    height: 55,
+    backgroundColor: "#FFFFED",
+    marginBottom: 0,
   },
   card: {
     flex: 1,
-    marginHorizontal: 8,
-    height: 50,
+    marginHorizontal: 3,
+    height: 55,
     marginBottom: -20,
+    backgroundColor: "#FFFFED",
   },
   card1: {
     flex: 1,
-    marginHorizontal: 8,
+    marginHorizontal: 15,
     height: 80,
-    marginBottom: -10,
+    marginBottom: -20,
+    marginTop: -5,
+    backgroundColor: "#FFFFED",
   },
   emptySpace: {
     flex: 1,
