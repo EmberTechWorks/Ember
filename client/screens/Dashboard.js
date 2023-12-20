@@ -1,12 +1,30 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
+import {
+  Dimensions,
+  View,
+  StyleSheet,
+  Image,
+  ImageBackground,
+} from "react-native";
 import { Card, Title, Button, Text } from "react-native-paper";
 import { getAuth, signOut } from "firebase/auth";
 import { CommonActions } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Icon1 from "react-native-vector-icons/FontAwesome5";
 import Icon2 from "react-native-vector-icons/Ionicons";
+import Carousel from "react-native-reanimated-carousel";
+// import axios from "axios"; for fetching instagram posts
 
+const images = [
+  require("../assets/ember.jpeg"),
+  require("../assets/ember.jpeg"),
+  require("../assets/ember.jpeg"),
+  require("../assets/ember.jpeg"),
+  require("../assets/ember.jpeg"),
+  require("../assets/ember.jpeg"),
+];
+
+const width = Dimensions.get("window").width;
 const Dashboard = ({ navigation }) => {
   const handleLogout = async () => {
     try {
@@ -148,7 +166,7 @@ const Dashboard = ({ navigation }) => {
             <Card.Content style={styles.centeredContent}>
               <Icon
                 name="pie-chart"
-                size={28}
+                size={30}
                 color="#000"
                 style={styles.cardlogo1}
               />
@@ -168,6 +186,32 @@ const Dashboard = ({ navigation }) => {
             </Card.Content>
           </Card>
         </View>
+      </View>
+      {/* Carousel */}
+      <View style={{ flex: 1 }}>
+        <Carousel
+          loop
+          width={250}
+          height={250}
+          autoPlay={true}
+          data={images.map((image, index) => ({ id: index, uri: image }))}
+          scrollAnimationDuration={1000}
+          onSnapToItem={(index) => console.log("current index:", index)}
+          renderItem={({ item }) => (
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <ImageBackground
+                source={item.uri}
+                style={{ width: 250, height: 250 }}
+              />
+            </View>
+          )}
+        />
       </View>
       {/* Empty space */}
       <View style={styles.emptySpace} />
@@ -197,7 +241,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     padding: 10,
-    marginTop: 16,
+    marginTop: 20,
   },
   headerLeft: {
     flexDirection: "row",
@@ -246,6 +290,7 @@ const styles = StyleSheet.create({
     borderRadius: 55,
     padding: 5,
     margin: 10,
+    marginTop: 25,
   },
   cardContainer: {
     flexDirection: "row",
