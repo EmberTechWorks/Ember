@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Entypo } from '@expo/vector-icons';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -33,7 +34,38 @@ export default function HomeScreen() {
         onPress={handleLoginPress}
       >
         <Text style={{ color: 'white', fontSize: 15, fontWeight: 'bold' }}>Get Started</Text>
+      
       </TouchableOpacity>
+      <View style={{
+            flex: 1,
+            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
+            backgroundColor: "#fff",
+        }}>
+      <TouchableOpacity
+                onPress={() => navigation.navigate("Chat")}
+                style={{
+                  backgroundColor: '#f57c00',
+                  height: 50,
+                  width: 50,
+                  borderRadius: 25,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginRight: 20,
+                  marginBottom: 50,
+                  shadowColor: '#f57c00',
+                  shadowOffset: {
+                    width: 0,
+                    height: 2,
+                },
+                shadowOpacity: .9,
+                shadowRadius: 8,
+              }}
+            >
+                <Entypo name="chat" size={24} />
+        </TouchableOpacity>
+        </View>
     </View>
   );
 }
+
