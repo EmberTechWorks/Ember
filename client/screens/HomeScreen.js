@@ -42,7 +42,7 @@ export default function HomeScreen() {
             alignItems: 'flex-end',
             backgroundColor: "#fff",
         }}>
-      <TouchableOpacity
+      {/* <TouchableOpacity
                 onPress={() => navigation.navigate("Chat")}
                 style={{
                   backgroundColor: '#f57c00',
@@ -63,7 +63,7 @@ export default function HomeScreen() {
               }}
             >
                 <Entypo name="chat" size={24} />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         </View>
     </View>
   );

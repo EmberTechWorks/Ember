@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Image,
   ImageBackground,
+  TouchableOpacity,
 } from "react-native";
 import { Card, Title, Button, Text } from "react-native-paper";
 import { getAuth, signOut } from "firebase/auth";
@@ -175,15 +176,20 @@ const Dashboard = ({ navigation }) => {
           </Card>
 
           <Card style={styles.card2}>
+          
             <Card.Content style={styles.centeredContent}>
+            <TouchableOpacity onPress={() => navigation.navigate("Chat")}>
               <Icon2
                 name="people-circle"
                 size={30}
                 color="#000"
                 style={styles.cardlogo1}
               />
+             
               <Text style={styles.content3}>Community</Text>
+              </TouchableOpacity>
             </Card.Content>
+          
           </Card>
         </View>
       </View>

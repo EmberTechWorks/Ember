@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
 import Login from "../screens/Login";
+import Signup from "../screens/Signup";
 import Dashboard from "../screens/Dashboard";
 import Chat from "../screens/Chat";
 
@@ -26,6 +27,11 @@ export default function Navigation() {
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Signup"
+          component={Signup}
           options={{ headerShown: false }}
         />
         <Stack.Screen
