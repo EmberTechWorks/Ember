@@ -90,13 +90,15 @@ const Dashboard = ({ navigation }) => {
         <View style={styles.cardContainer}>
           <Card style={styles.card}>
             <Card.Content style={styles.centeredContent}>
-              <Icon
-                name="bus"
-                size={30}
-                color="#000"
-                style={styles.cardlogo1}
-              />
-              <Text style={styles.content2}>Public Transit</Text>
+              <TouchableOpacity onPress={() => navigation.navigate("TransitScreen")}>
+                <Icon
+                  name="bus"
+                  size={30}
+                  color="#000"
+                  style={styles.cardlogo1}
+                />
+                <Text style={styles.content2}>Public Transit</Text>
+              </TouchableOpacity>
             </Card.Content>
           </Card>
 
@@ -191,7 +193,7 @@ const Dashboard = ({ navigation }) => {
           </Card>
         </View>
       </View>
-      
+
       {/* Carousel */}
       <View
         style={{
@@ -208,7 +210,6 @@ const Dashboard = ({ navigation }) => {
           autoPlay={true}
           data={images.map((image, index) => ({ id: index, uri: image }))}
           scrollAnimationDuration={1000}
-          onSnapToItem={(index) => console.log("current index:", index)}
           renderItem={({ item }) => (
             <View
               style={{

@@ -6,6 +6,7 @@ import Login from "../screens/Login";
 import Signup from "../screens/Signup";
 import Dashboard from "../screens/Dashboard";
 import Chat from "../screens/Chat";
+import TransitScreen from "../screens/TransitScreen";
 
 const Stack = createStackNavigator();
 
@@ -38,6 +39,11 @@ export default function Navigation() {
           name="Dashboard"
           component={Dashboard}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TransitScreen"
+          component={TransitScreen}
+          options={{ headerShown: true }}
         />
       </Stack.Navigator>
     </NavigationContainer>
