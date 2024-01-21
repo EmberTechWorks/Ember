@@ -167,6 +167,7 @@ const Dashboard = ({ navigation }) => {
 
           <Card style={styles.card2}>
             <Card.Content style={styles.centeredContent}>
+            <TouchableOpacity onPress={() => navigation.navigate("Statistics")}>
               <Icon
                 name="pie-chart"
                 size={30}
@@ -174,6 +175,7 @@ const Dashboard = ({ navigation }) => {
                 style={styles.cardlogo1}
               />
               <Text style={styles.content3}>Statistics</Text>
+              </TouchableOpacity>
             </Card.Content>
           </Card>
 
