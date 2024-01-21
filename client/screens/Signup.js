@@ -7,8 +7,8 @@ import {
     StyleSheet,
     Image,
 } from "react-native";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import firebaseApp from "../firebaseConfig";
+import {  createUserWithEmailAndPassword } from "firebase/auth";
+import {auth} from "../firebaseConfig";
 import { CommonActions } from "@react-navigation/native";
 
 export default function Signup({ navigation }) {
@@ -17,7 +17,6 @@ export default function Signup({ navigation }) {
 
     const handleSignup = async () => {
         try {
-            const auth = getAuth(firebaseApp);
             await createUserWithEmailAndPassword(auth, email, password);
             console.log("User signed up successfully!");
 

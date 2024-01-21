@@ -7,8 +7,8 @@ import {
   Text,
   StyleSheet,
 } from "react-native";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import firebaseApp from "../firebaseConfig";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import {auth} from "../firebaseConfig";
 import { CommonActions } from "@react-navigation/native";
 
 export default function Login({ navigation }) {
@@ -17,7 +17,6 @@ export default function Login({ navigation }) {
 
   const handleLogin = async () => {
     try {
-      const auth = getAuth(firebaseApp);
       await signInWithEmailAndPassword(auth, email, password);
       console.log("User signed in successfully!");
 
