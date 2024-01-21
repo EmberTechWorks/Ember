@@ -176,25 +176,31 @@ const Dashboard = ({ navigation }) => {
           </Card>
 
           <Card style={styles.card2}>
-          
             <Card.Content style={styles.centeredContent}>
-            <TouchableOpacity onPress={() => navigation.navigate("Chat")}>
-              <Icon2
-                name="people-circle"
-                size={30}
-                color="#000"
-                style={styles.cardlogo1}
-              />
-             
-              <Text style={styles.content3}>Community</Text>
+              <TouchableOpacity onPress={() => navigation.navigate("Chat")}>
+                <Icon2
+                  name="people-circle"
+                  size={30}
+                  color="#000"
+                  style={styles.cardlogo1}
+                />
+
+                <Text style={styles.content3}>Community</Text>
               </TouchableOpacity>
             </Card.Content>
-          
           </Card>
         </View>
       </View>
+      
       {/* Carousel */}
-      <View style={{ flex: 1 }}>
+      <View
+        style={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: 100,
+        }}
+      >
         <Carousel
           loop
           width={250}
