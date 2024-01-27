@@ -60,6 +60,14 @@ const Dashboard = ({ navigation }) => {
           >
             Logout
           </Button>
+          <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+                          <Icon
+                            name="user"
+                            size={30}
+                            color="#000"
+                            style={styles.cardlogo2}
+                          />
+                        </TouchableOpacity>
         </View>
       </View>
       <View style={styles.cardCover}>
