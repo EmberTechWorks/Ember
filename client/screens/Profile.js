@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, Alert,Platform,Button } from 'react-native';
 import { getDoc, setDoc, doc } from 'firebase/firestore';
-import { auth, database } from '../firebaseConfig';
+import { auth, database, storage } from '../firebaseConfig';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native'; 
+import ImageUpload from './Image';
 
 export default function Profile() {
     const navigation = useNavigation(); // Initialize the useNavigation hook
@@ -49,7 +50,7 @@ export default function Profile() {
     };
 
     const navigateToDashboard = () => {
-        navigation.navigate('Dashboard'); // Replace 'Dashboard' with the name of your dashboard screen
+        navigation.navigate('Dashboard'); 
     };
 
     return (
@@ -57,12 +58,14 @@ export default function Profile() {
             <TouchableOpacity onPress={navigateToDashboard} style={styles.backButton}>
                 <AntDesign name="arrowleft" size={24} color="black" />
             </TouchableOpacity>
-            <View style={styles.profileContainer}>
+            {/* <View style={styles.profileContainer}>
                 <Text style={styles.myProfileText}>My Profile</Text>
                 <Image source={{ uri: profileData.profilePhoto }} style={styles.profilePhoto} />
                 <Text style={styles.username}>{profileData.username}</Text>
                 <Text style={styles.email}>{auth.currentUser.email}</Text>
-            </View>
+            </View> */}
+            {/* Conditionally render the image  
+            or error message */} 
             <View style={styles.formContainer}>
                 <Text style={styles.label}>Username</Text>
                 <TextInput
@@ -143,4 +146,26 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 10,
     },
+    imageContainer: { 
+        borderRadius: 8, 
+        marginBottom: 16, 
+        shadowColor: "#000000", 
+        shadowOffset: { width: 0, height: 2 }, 
+        shadowOpacity: 0.4, 
+        shadowRadius: 4, 
+        elevation: 5, 
+    }, 
+    image: { 
+        width: 200, 
+        height: 200, 
+        borderRadius: 8, 
+    }, 
+    errorText: { 
+        color: "red", 
+        marginTop: 16, 
+    }, 
+    header: { 
+        fontSize: 20, 
+        marginBottom: 16, 
+    }, 
 });
