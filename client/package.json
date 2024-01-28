@@ -6,7 +6,8 @@
     "start": "GENERATE_SOURCEMAP=false && expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "format": "prettier --write \"src/**/*.{js,jsx,json,css,scss,md}\""
   },
   "dependencies": {
     "@expo/webpack-config": "^19.0.0",
@@ -39,7 +40,21 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "husky": "^9.0.6",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.4",
     "react-native-gifted-chat": "^2.4.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "private": true
 }
