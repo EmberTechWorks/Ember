@@ -7,6 +7,7 @@ import TransitScreen from '../screens/TransitScreen';
 import Profile from '../screens/Profile';
 import Statistics from '../screens/Statistics';
 import Chat from '../screens/Chat';
+import Post from '../screens/Post';
 
 const Stack = createStackNavigator();
 
@@ -33,7 +34,12 @@ export default function UserStack() {
               <Stack.Screen
             name="Statistics"
             component={Statistics}
-            options={{ headerShown: false }}
+            options={{ headerShown: true }}
+            />
+             <Stack.Screen
+            name="Post"
+            component={Post}
+            options={{ headerShown: true }}
             />
             <Stack.Screen
             name="Chat"

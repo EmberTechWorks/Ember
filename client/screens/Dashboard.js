@@ -152,6 +152,9 @@ const Dashboard = ({ navigation }) => {
 
           <Card style={styles.card}>
             <Card.Content style={styles.centeredContent}>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Post')}
+              >
               <Icon2
                 name="create"
                 size={30}
@@ -159,6 +162,7 @@ const Dashboard = ({ navigation }) => {
                 style={styles.cardlogo1}
               />
               <Text style={styles.content2}>Create Post</Text>
+              </TouchableOpacity>
             </Card.Content>
           </Card>
         </View>
