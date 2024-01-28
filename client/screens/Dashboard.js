@@ -49,10 +49,22 @@ const Dashboard = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <Image source={require("../assets/ember.jpeg")} style={styles.logo} />
+          <Image
+            source={require("../assets/ember.jpeg")}
+            style={styles.Toplogo}
+          />
           <Title style={styles.title}>ember</Title>
         </View>
+
         <View style={styles.headerRight}>
+          <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+            <Icon
+              name="user"
+              size={30}
+              color="#000"
+              style={styles.profileCardlogo}
+            />
+          </TouchableOpacity>
           <Button
             style={styles.logoutButton}
             labelStyle={styles.buttonText}
@@ -60,14 +72,6 @@ const Dashboard = ({ navigation }) => {
           >
             Logout
           </Button>
-          <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-                          <Icon
-                            name="user"
-                            size={30}
-                            color="#000"
-                            style={styles.cardlogo2}
-                          />
-                        </TouchableOpacity>
         </View>
       </View>
       <View style={styles.cardCover}>
@@ -98,7 +102,9 @@ const Dashboard = ({ navigation }) => {
         <View style={styles.cardContainer}>
           <Card style={styles.card}>
             <Card.Content style={styles.centeredContent}>
-              <TouchableOpacity onPress={() => navigation.navigate("TransitScreen")}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("TransitScreen")}
+              >
                 <Icon
                   name="bus"
                   size={30}
@@ -175,14 +181,16 @@ const Dashboard = ({ navigation }) => {
 
           <Card style={styles.card2}>
             <Card.Content style={styles.centeredContent}>
-            <TouchableOpacity onPress={() => navigation.navigate("Statistics")}>
-              <Icon
-                name="pie-chart"
-                size={30}
-                color="#000"
-                style={styles.cardlogo1}
-              />
-              <Text style={styles.content3}>Statistics</Text>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Statistics")}
+              >
+                <Icon
+                  name="pie-chart"
+                  size={30}
+                  color="#000"
+                  style={styles.cardlogo1}
+                />
+                <Text style={styles.content3}>Statistics</Text>
               </TouchableOpacity>
             </Card.Content>
           </Card>
@@ -245,6 +253,7 @@ const Dashboard = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: -20,
   },
   content1: {
     fontSize: 12,
@@ -275,6 +284,12 @@ const styles = StyleSheet.create({
     height: 40,
     marginRight: 8,
   },
+  Toplogo: {
+    width: 40,
+    height: 40,
+    marginRight: 8,
+    marginLeft: 5,
+  },
   cardlogo1: {
     width: 30,
     height: 30,
@@ -288,6 +303,13 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginLeft: 20,
     marginRight: 0,
+  },
+  profileCardlogo: {
+    width: 50,
+    height: 50,
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: -10,
   },
   centeredContent: {
     alignItems: "center",
@@ -303,6 +325,7 @@ const styles = StyleSheet.create({
   },
   logoutButton: {
     backgroundColor: "blue",
+    marginRight: 5,
   },
   buttonText: {
     color: "white",
