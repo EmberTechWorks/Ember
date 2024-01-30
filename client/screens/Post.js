@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     padding: 10,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   titleText: {
     fontSize: 20,
@@ -120,9 +120,9 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 40,
     marginLeft: 20,
-    marginRight:20,
+    marginRight: 20,
     width: 300,
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   logo: {
     width: 100,
