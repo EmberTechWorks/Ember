@@ -6,6 +6,7 @@ import {
   Image,
   ImageBackground,
   TouchableOpacity,
+  ScrollView
 } from "react-native";
 import { Card, Title, Button, Text } from "react-native-paper";
 import { getAuth, signOut } from "firebase/auth";
@@ -62,10 +63,11 @@ const Dashboard = ({ navigation }) => {
           </Button>
         </View>
       </View>
+      
       <View style={styles.cardCover}>
         <View style={styles.cardContainer}>
-          <Card style={styles.card1}>
-            <Card.Content>
+          <View style={styles.card1}>
+            
               <Text style={styles.content1}>Daily Reduction</Text>
               <Icon
                 name="circle-o-notch"
@@ -73,10 +75,10 @@ const Dashboard = ({ navigation }) => {
                 color="#000"
                 style={styles.cardlogo2}
               />
-            </Card.Content>
-          </Card>
-          <Card style={styles.card1}>
-            <Card.Content>
+            
+          </View>
+          <View style={styles.card1}>
+            
               <Text style={styles.content1}>Global Position</Text>
               <Icon
                 name="line-chart"
@@ -84,8 +86,8 @@ const Dashboard = ({ navigation }) => {
                 color="#000"
                 style={styles.cardlogo2}
               />
-            </Card.Content>
-          </Card>
+            
+          </View>
         </View>
         <View style={styles.cardContainer}>
           <Card style={styles.card}>
@@ -308,9 +310,11 @@ const styles = StyleSheet.create({
     marginTop: 25,
   },
   cardContainer: {
-    flexDirection: "row",
+    flexDirection: "row", 
     justifyContent: "space-between",
-    margin: 14,
+    margin: 11,
+    borderWidth :0,
+
   },
   card2: {
     flex: 1,
@@ -318,6 +322,7 @@ const styles = StyleSheet.create({
     height: 55,
     backgroundColor: "#FFFFED",
     marginBottom: 0,
+    borderRadius: 0,
   },
   card: {
     flex: 1,
@@ -325,14 +330,22 @@ const styles = StyleSheet.create({
     height: 55,
     marginBottom: -20,
     backgroundColor: "#FFFFED",
+    borderRadius: 0,
+    borderWidth:1,
+    borderTopWidth:0,
+    borderColor:"#F7B4BB",
   },
   card1: {
     flex: 1,
-    marginHorizontal: 15,
+    //marginHorizontal: 15,
     height: 80,
-    marginBottom: -20,
-    marginTop: -5,
+    //marginBottom: -20,
+    //marginTop: -5,
     backgroundColor: "#FFFFED",
+    borderWidth: 0,
+    border: 0,
+    margin: 10,
+    padding: 5,
   },
   emptySpace: {
     flex: 1,
