@@ -13,7 +13,7 @@ import {
 
 export default function Post() {
   const [tweetContent, setTweetContent] = useState(
-    `Hey Guys, Check out [ToDo]! 
+    `Hey guys, check out @embertechworks! 
 
 Join me on Ember for:
     - Eco-transit
@@ -52,7 +52,7 @@ Let's go green!
           placeholder={'Enter Tweet Content'}
           style={styles.textInput}
           multiline={true}
-          numberOfLines={6}
+          numberOfLines={10}
         />
 
         <TouchableOpacity
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     padding: 10,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   titleText: {
     fontSize: 20,
@@ -96,11 +96,11 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 150,
+    marginLeft: 120,
     marginTop: 5,
     marginBottom: 10,
     margin: 50,
-    width: '20%',
+    width: '25%',
     borderRadius: 5,
     shadowColor: 'rgba(0, 0, 0, 0.2)',
     shadowOffset: { width: 0, height: 2 },
@@ -113,14 +113,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   textInput: {
-    height: 200,
+    height: 220,
     borderColor: 'gray',
-    borderWidth: 0.01,
+    borderWidth: 1,
     marginBottom: 20,
     padding: 10,
-    margin: 35,
-    width: '65%',
-    alignSelf: 'center'
+    margin: 40,
+    marginLeft: 20,
+    marginRight:20,
+    width: 300,
+    alignSelf: 'center',
   },
   logo: {
     width: 100,
