@@ -1,0 +1,39 @@
+name: Prettier
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check code formatting with Prettier
+        run: npx prettier --check .
+
+      - name: Post comment if formatting issues found
+        if: ${{ failure() }}
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Prettier found formatting issues in the code. Please fix them before merging.'
+            })

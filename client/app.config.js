@@ -27,6 +27,14 @@ export default {
     "web": {
       "favicon": "./assets/ember.jpeg"
     },
+  "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ]
+    ],
     "extra": {
       apiKey: process.env.API_KEY,
       authDomain: process.env.AUTH_DOMAIN,
