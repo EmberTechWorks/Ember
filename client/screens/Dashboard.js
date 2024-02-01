@@ -152,16 +152,14 @@ const Dashboard = ({ navigation }) => {
 
           <Card style={styles.card}>
             <Card.Content style={styles.centeredContent}>
-            <TouchableOpacity
-                onPress={() => navigation.navigate('Post')}
-              >
-              <Icon2
-                name="create"
-                size={30}
-                color="#000"
-                style={styles.cardlogo1}
-              />
-              <Text style={styles.content2}>Create Post</Text>
+              <TouchableOpacity onPress={() => navigation.navigate('Post')}>
+                <Icon2
+                  name="create"
+                  size={30}
+                  color="#000"
+                  style={styles.cardlogo1}
+                />
+                <Text style={styles.content2}>Create Post</Text>
               </TouchableOpacity>
             </Card.Content>
           </Card>

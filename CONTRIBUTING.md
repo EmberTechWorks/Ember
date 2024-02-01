@@ -1,6 +1,6 @@
 # Contributing to Ember
 
-***Thank you for considering contributing to Ember!***
+**_Thank you for considering contributing to Ember!_**
 
 We welcome contributions from the community to help us make this project even better and more impactful. Whether you're a developer, designer, writer, or have other skills, your input is valuable.
 
