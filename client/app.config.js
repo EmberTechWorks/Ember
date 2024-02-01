@@ -1,41 +1,40 @@
-import "dotenv/config";
+import 'dotenv/config'
 export default {
-  "expo": {
-    "name": "client",
-    "slug": "client",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/ember.jpeg",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/ember.jpeg",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+  expo: {
+    name: 'client',
+    slug: 'client',
+    version: '1.0.0',
+    orientation: 'portrait',
+    icon: './assets/ember.jpeg',
+    userInterfaceStyle: 'light',
+    splash: {
+      image: './assets/ember.jpeg',
+      resizeMode: 'contain',
+      backgroundColor: '#ffffff'
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
+    assetBundlePatterns: ['**/*'],
+    ios: {
+      supportsTablet: true
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/ember.jpeg",
-        "backgroundColor": "#ffffff"
+    android: {
+      adaptiveIcon: {
+        foregroundImage: './assets/ember.jpeg',
+        backgroundColor: '#ffffff'
       }
     },
-    "web": {
-      "favicon": "./assets/ember.jpeg"
+    web: {
+      favicon: './assets/ember.jpeg'
     },
-  "plugins": [
+    plugins: [
       [
-        "expo-image-picker",
+        'expo-image-picker',
         {
-          "photosPermission": "The app accesses your photos to let you share them with your friends."
+          photosPermission:
+            'The app accesses your photos to let you share them with your friends.'
         }
       ]
     ],
-    "extra": {
+    extra: {
       apiKey: process.env.API_KEY,
       authDomain: process.env.AUTH_DOMAIN,
       projectId: process.env.PROJECT_ID,
